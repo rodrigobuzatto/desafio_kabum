@@ -25,8 +25,15 @@ const initState = {
 }
 
 const addToCart = (state, item) => {
-    let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
-    newShoppingCart = [...newShoppingCart, item]
+    let quantidade = state.shoppingCart.filter(cart => cart.id === item.id)
+                                       .reduce((total, cart) => total += cart.addToCart, 0)
+
+    console.log(quantidade)
+    
+    // let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
+    // newShoppingCart = [...newShoppingCart, item]
+
+    let newShoppingCart = [...state.shoppingCart, item]
 
     return {
         ...state,
