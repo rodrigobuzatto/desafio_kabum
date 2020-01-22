@@ -5,23 +5,21 @@ import Product from './Product';
 import Quantity from './Quantity';
 import RemoveFromCart from './RemoveFromCart';
 
-class ShoppingCart extends Component {    
-    shoppingCartItems = this.props.shoppingCart.length ? (
-        this.props.shoppingCart.map((item) => {
-            return (
-                <div key={item.id}>
-                    <Product item={item} />
-                    <Quantity item={item} />
-                    <RemoveFromCart item={item} />
-                </div>
-            )
-        })
-    ) : []
-
+class ShoppingCart extends Component {
     render() {
         const shoppingCart = this.props.shoppingCart.length ? (
             <div>
-                {this.shoppingCartItems}
+                {
+                    this.props.shoppingCart.map((item) => {
+                        return (
+                            <div key={item.id}>
+                                <Product item={item} />
+                                <Quantity item={item} />
+                                <RemoveFromCart item={item} />
+                            </div>
+                        )
+                    })
+                }
             </div>
         ) : (
             <div>

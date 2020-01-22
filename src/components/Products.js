@@ -5,25 +5,24 @@ import AddToCart from './AddToCart';
 import Filter from '../components/Filter';
 
 class Products extends Component {
-    
-    listProducts = this.props.products.length ? this.props.products.map((item) => {
-        return (
-            <div key={item.id}>
-                <Product item={item}/>
-                <AddToCart item={item}/>
+    render() {
+        const listProducts = this.props.products.length ? this.props.products.map((item) => {
+            return (
+                <div key={item.id}>
+                    <Product item={item}/>
+                    <AddToCart item={item} quantity="1"/>
+                </div>
+            )
+        }) :  (
+            <div>
+                <h1>Produto não encontrado</h1>
             </div>
         )
-    }) :  (
-        <div>
-            <h1>Produto não encontrado</h1>
-        </div>
-    )
 
-    render() {
         return (
             <div>
                 <Filter />
-                {this.listProducts}
+                {listProducts}
             </div>
         )
     }

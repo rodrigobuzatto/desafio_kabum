@@ -25,16 +25,10 @@ const initState = {
 }
 
 const addToCart = (state, item) => {
-    let existingItem = state.shoppingCart.find(product => product.id === item.id)
-    let newItem = existingItem ? (
-        {
-            ...existingItem,
-            existingItem: existingItem.addToCart += item.addToCart
-        }
-    ) : item
-
-    let newShoppingCart = [...state.shoppingCart, newItem];
-
+    let newShoppingCart = [...state.shoppingCart, item];
+    
+    console.log(newShoppingCart)
+    
     return {
         ...state,
         shoppingCart: newShoppingCart.sort((a, b) => a.id - b.id)
@@ -61,13 +55,16 @@ const handleQuantity = (state, item) => {
 }
 
 const filter = (state, item) => {
+    const { products } = initState
+
     if(!item) {
         return {
-            ...state
+            ...state,
+            products
         }
     }
 
-    let newProducts = (parseInt(item) ? (state.products.find(product => product.id === parseInt(item))) : (state.products.filter(product => product.product.includes(item))));
+    let newProducts = (parseInt(item) ? (products.filter(product => product.id === parseInt(item))) : (products.filter(product => product.product.toLowerCase().includes(item.toLowerCase()))));
 
     return {
         ...state,

@@ -5,7 +5,8 @@ import { filter } from '../actions/productActions';
 class Filter extends Component {
     search = '';
 
-    handleClick = () => {
+    handleClick = (event) => {
+        event.preventDefault()
         this.props.filter(this.search)
     }
 
@@ -16,8 +17,10 @@ class Filter extends Component {
     render() {
         return (
             <div>
-                <input type="text" id="filter" placeholder="Pesquisar produtos ..." onChange={this.handleChange}/>
-                <button onClick={this.handleClick}>Buscar</button>
+                <form onSubmit={this.handleClick}>
+                    <input type="text" id="filter" placeholder="Pesquisar produtos ..." onChange={this.handleChange}/>
+                    <button type="submit">Buscar</button>
+                </form>
             </div>
         )
     }
