@@ -25,11 +25,19 @@ const initState = {
 }
 
 const addToCart = (state, item) => {
-    let newShoppingCart = [...state.shoppingCart, item];
+    let existingItem = state.shoppingCart.find(product => product.id === item.id)
+    let newItem = existingItem ? (
+        {
+            ...existingItem,
+            existingItem: existingItem.addToCart += item.addToCart
+        }
+    ) : item
+
+    let newShoppingCart = [...state.shoppingCart, newItem];
 
     return {
         ...state,
-        shoppingCart: newShoppingCart
+        shoppingCart: newShoppingCart.sort((a, b) => a.id - b.id)
     }
 }
 
@@ -38,7 +46,7 @@ const removeFromCart = (state, item) => {
 
     return {
         ...state,
-        shoppingCart: newShoppingCart
+        shoppingCart: newShoppingCart.sort((a, b) => a.id - b.id)
     }
 }
 
@@ -48,7 +56,7 @@ const handleQuantity = (state, item) => {
 
     return {
         ...state,
-        products: newProducts
+        products: newProducts.sort((a, b) => a.id - b.id)
     }
 }
 
@@ -63,7 +71,7 @@ const filter = (state, item) => {
 
     return {
         ...state,
-        products: newProducts
+        products: newProducts.sort((a, b) => a.id - b.id)
     }
 }
 

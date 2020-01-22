@@ -3,21 +3,25 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Product from './Product';
 import Quantity from './Quantity';
+import RemoveFromCart from './RemoveFromCart';
 
 class ShoppingCart extends Component {    
     shoppingCartItems = this.props.shoppingCart.length ? (
         this.props.shoppingCart.map((item) => {
-            <div>
-                <Product item={item} />
-                <Quantity item={item} />
-            </div>
+            return (
+                <div key={item.id}>
+                    <Product item={item} />
+                    <Quantity item={item} />
+                    <RemoveFromCart item={item} />
+                </div>
+            )
         })
     ) : []
 
     render() {
         const shoppingCart = this.props.shoppingCart.length ? (
             <div>
-                <h1>{this.shoppingCartItems}</h1>
+                {this.shoppingCartItems}
             </div>
         ) : (
             <div>
