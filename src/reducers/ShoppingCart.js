@@ -25,13 +25,12 @@ const initState = {
 }
 
 const addToCart = (state, item) => {
-    let newShoppingCart = [...state.shoppingCart, item];
-    
-    console.log(newShoppingCart)
-    
+    let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
+    newShoppingCart = [...newShoppingCart, item]
+
     return {
         ...state,
-        shoppingCart: newShoppingCart.sort((a, b) => a.id - b.id)
+        shoppingCart: newShoppingCart.sort((a,b) => a.id - b.id)
     }
 }
 

@@ -4,7 +4,7 @@ import { addToCart } from  '../actions/cartActions';
 
 class AddToCart extends Component {
     handleClick = () => {
-        this.props.item.addToCart = this.props.quantity ? parseInt(this.props.quantity) : this.props.item.addToCart;
+        this.props.item.addToCart = this.props.item.addToCart ? this.props.item.addToCart : 1;
         this.props.addToCart(this.props.item);
     }
 

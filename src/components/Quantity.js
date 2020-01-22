@@ -4,7 +4,7 @@ import { addQuantity, removeQuantity } from '../actions/productActions';
 
 class Quantity extends Component {
 
-    quantity = this.props.product.addToCart || 1;    
+    quantity = this.props.product.addToCart || 1;
 
     handleClickAdd = () => {
         this.quantity++;
@@ -15,14 +15,14 @@ class Quantity extends Component {
     handleClickRemove = () => {
         this.quantity--;
         this.props.product.addToCart = this.quantity;
-        this.props.removeQuantity(this.props.product);
+        this.props.removeQuantity(this.props.product);        
     }
 
-    render() {        
+    render() {
         return (            
-            <div>
+            <div>                
                 <button onClick={this.handleClickRemove} disabled={this.quantity === 0}>-</button>
-                <label>{this.props.product.addToCart || this.quantity}</label>
+                <input type="text" id="quantity" disabled value={this.props.product.addToCart || this.quantity}></input>
                 <button onClick={this.handleClickAdd}>+</button>
             </div>
         )
