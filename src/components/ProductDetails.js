@@ -3,23 +3,24 @@ import { connect } from 'react-redux';
 import Product from './Product';
 import AddToCart from './AddToCart';
 import Quantity from './Quantity';
+import { Title, ProductContainer, Container } from '../styles/styles';
 
 class ProductDetails extends Component {
     render() {
         const product = this.props.product ? (
-            <div key={this.props.product.id}>
+            <ProductContainer key={this.props.product.id}>
                 <Product item={this.props.product} />
                 <Quantity item={this.props.product} />
                 <AddToCart item={this.props.product} />
-            </div>
+            </ProductContainer>
         ) : (
-            <div>
-                <h1>Produto não encontrado.</h1>
-            </div>
+            <ProductContainer>
+                <Title>Produto não encontrado.</Title>
+            </ProductContainer>
         )
         
         return (
-            <div>{product}</div>
+            <Container>{product}</Container>
         )
     }
 }

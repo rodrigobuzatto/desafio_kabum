@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { filter } from '../actions/productActions';
+import { FilterContainer, SearchButton, DefaultInput } from '../styles/styles';
 
 class Filter extends Component {
     search = '';
@@ -19,13 +20,11 @@ class Filter extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <form onSubmit={this.handleClick}>
-                    <input type="text" id="filter" placeholder="Pesquisar produtos ..." onChange={this.handleChange}/>
-                    <button type="submit">Buscar</button>
-                </form>
-            </div>
+        return (            
+            <FilterContainer onSubmit={this.handleClick}>
+                <DefaultInput type="text" id="filter" placeholder="Pesquisar produtos ..." onChange={this.handleChange}/>
+                <SearchButton type="submit">Buscar</SearchButton>
+            </FilterContainer>
         )
     }
 }

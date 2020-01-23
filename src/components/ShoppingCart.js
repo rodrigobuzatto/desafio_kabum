@@ -5,34 +5,37 @@ import Product from './Product';
 import Quantity from './Quantity';
 import RemoveFromCart from './RemoveFromCart';
 import UpdateCart from './UpdateCart';
+import { Container, BackToCartButton, Title, ProductContainer } from '../styles/styles';
 
 class ShoppingCart extends Component {
     render() {
         const shoppingCart = this.props.shoppingCart.length ? (
-            <div>
+            <Container>                
                 {
                     this.props.shoppingCart.map((item) => {
                         return (
-                            <div key={item.id}>
+                            <ProductContainer key={item.id}>
                                 <Product item={item} />
                                 <Quantity item={item} />
                                 <UpdateCart item={item} />
                                 <RemoveFromCart item={item} />
-                            </div>
+                            </ProductContainer>
                         )
                     })
                 }
-            </div>
+            </Container>
         ) : (
-            <div>
-                <h1>Carrinho vazio</h1>
-                <NavLink to="/">Voltar as compras</NavLink>
-            </div>
+            <ProductContainer>
+                <Title>Carrinho vazio</Title>
+                <BackToCartButton>
+                    <NavLink to="/">Voltar as compras</NavLink>
+                </BackToCartButton>
+            </ProductContainer>
         );
         return (
-            <div>
+            <Container>
                 {shoppingCart}
-            </div>
+            </Container>
         )
     }
 }

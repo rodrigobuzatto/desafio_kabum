@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from  '../actions/cartActions';
+import { CartActions } from '../styles/styles';
 
 class AddToCart extends Component {
     handleClick = () => {
@@ -13,7 +14,7 @@ class AddToCart extends Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>Adicionar ao carrinho</button>
+            <CartActions onClick={this.handleClick}>Adicionar ao carrinho</CartActions>
         )
     }
 }

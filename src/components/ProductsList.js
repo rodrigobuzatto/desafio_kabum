@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Filter from './Filter';
+import { MenuContainer, MenuTitle, MenuProducts, MenuItem, MenuItemMessage } from '../styles/styles';
 
 class ProductsList extends Component {
     render() {
         const productsList = this.props.products.length ? this.props.products.map((item) => {
             return (
-                <li>
-                    <NavLink to={'/product/' + item.id} key={item.id}>{item.product}</NavLink>
-                </li>
+                <MenuItem key={item.id}>
+                    <NavLink to={'/product/' + item.id}>{item.product}</NavLink>
+                </MenuItem>
             )
         }) : (
-            <li>Produtos não encontrados.</li>
+            <MenuItemMessage>Produtos não encontrados.</MenuItemMessage>
         )
         return (
-            <div>
-                <ul>
+            <MenuContainer>
+                <MenuTitle>Produtos</MenuTitle>
+                <Filter />
+                <MenuProducts>
                     {productsList}
-                </ul>
-            </div>
+                </MenuProducts>
+            </MenuContainer>
         )
     }
 }

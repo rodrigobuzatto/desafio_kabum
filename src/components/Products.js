@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import Product from './Product';
 import { connect } from 'react-redux';
 import AddToCart from './AddToCart';
-import Filter from '../components/Filter';
+//import Filter from '../components/Filter';
+import { Container, Title, ProductContainer } from '../styles/styles';
 
 class Products extends Component {
     render() {
         const listProducts = this.props.products.length ? this.props.products.map((item) => {
             return (
-                <div key={item.id}>
+                <ProductContainer key={item.id}>
                     <Product item={item}/>
                     <AddToCart item={item} />
-                </div>
+                </ProductContainer>
             )
         }) :  (
-            <div>
-                <h1>Produto não encontrado</h1>
-            </div>
+            <Title>Produto não encontrado</Title>
         )
 
-        return (
-            <div>
-                <Filter />
+        return (            
+            <Container>
                 {listProducts}
-            </div>
+            </Container>
         )
     }
 }

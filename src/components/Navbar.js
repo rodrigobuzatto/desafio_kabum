@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { NavContainer, MyCart } from '../styles/styles';
+import logo from '../images/logo.png';
  
 class Navbar extends Component {
     render() {
         return (
-            <nav>
-            <NavLink to="/">Produtos</NavLink>
-            <NavLink to="/cart">Meu carrinho<label>{this.props.items}</label></NavLink>
-        </nav>
+            <NavContainer>
+                <NavLink to="/"><img src={logo} alt="Logo"/></NavLink>
+                <MyCart>
+                    <NavLink to="/cart"><label>{this.props.items}</label>Meu carrinho</NavLink>
+                </MyCart>
+            </NavContainer>
         )
     }
 }

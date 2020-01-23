@@ -19,6 +19,30 @@ const initState = {
             product: 'Notebook Gamer Nitro 5',
             description: 'Uma breve descrição sobre o notebook gamer nitro 5',
             price: 3500
+        },
+        {
+            id: 4,
+            product: 'Notebook Gamer Nitro 5',
+            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
+            price: 3500
+        },
+        {
+            id: 5,
+            product: 'Notebook Gamer Nitro 5',
+            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
+            price: 3500
+        },
+        {
+            id: 6,
+            product: 'Notebook Gamer Nitro 5',
+            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
+            price: 3500
+        },
+        {
+            id: 7,
+            product: 'Notebook Gamer Nitro 5',
+            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
+            price: 3500
         }
     ],
     shoppingCart: []

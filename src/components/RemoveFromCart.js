@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../actions/cartActions';
+import { CartActions } from '../styles/styles';
 
 class RemoveFromCart extends Component {
     handleClick = () => {
@@ -10,7 +11,7 @@ class RemoveFromCart extends Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>Remover do carrinho</button>
+            <CartActions onClick={this.handleClick}>Remover do carrinho</CartActions>
         )
     }
 }

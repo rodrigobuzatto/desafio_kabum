@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addQuantity, removeQuantity } from '../actions/productActions';
+import { QuantityButton, QuantityLabel, QuantityContainer } from '../styles/styles';
 
 class Quantity extends Component {
     
@@ -26,11 +27,11 @@ class Quantity extends Component {
 
     render() {
         return (            
-            <div>                
-                <button onClick={this.handleClickRemove} disabled={this.quantity === 0}>-</button>
-                <label>{this.quantity}</label>
-                <button onClick={this.handleClickAdd}>+</button>
-            </div>
+            <QuantityContainer>                
+                <QuantityButton onClick={this.handleClickRemove} disabled={this.quantity === 0}>-</QuantityButton>
+                <QuantityLabel>{this.quantity}</QuantityLabel>
+                <QuantityButton onClick={this.handleClickAdd}>+</QuantityButton>
+            </QuantityContainer>
         )
     }
 }

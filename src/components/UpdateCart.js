@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updateCart } from '../actions/cartActions'
+import { CartActions } from '../styles/styles';
 
 class UpdateCart extends Component {
     handleClick = () => {
@@ -13,7 +14,7 @@ class UpdateCart extends Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>Atualizar Item</button>
+            <CartActions onClick={this.handleClick}>Atualizar Item</CartActions>
         )
     }
 
