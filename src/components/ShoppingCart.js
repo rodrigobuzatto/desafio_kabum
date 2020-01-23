@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Product from './Product';
 import Quantity from './Quantity';
 import RemoveFromCart from './RemoveFromCart';
+import AddToCart from './AddToCart';
 
 class ShoppingCart extends Component {
     render() {
@@ -15,6 +16,7 @@ class ShoppingCart extends Component {
                             <div key={item.id}>
                                 <Product item={item} />
                                 <Quantity item={item} />
+                                <AddToCart item={item} label="Atualizar carrinho"/>
                                 <RemoveFromCart item={item} />
                             </div>
                         )

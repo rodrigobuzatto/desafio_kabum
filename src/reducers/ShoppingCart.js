@@ -25,19 +25,28 @@ const initState = {
 }
 
 const addToCart = (state, item) => {
-    let quantidade = state.shoppingCart.filter(cart => cart.id === item.id)
+    let quantity = state.shoppingCart.filter(cart => cart.id === item.id)
                                        .reduce((total, cart) => total += cart.addToCart, 0)
 
-    console.log(quantidade)
-    
-    // let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
-    // newShoppingCart = [...newShoppingCart, item]
+    let newItem = {
+        ...item,
+        addToCart: quantity + item.addToCart
+    }
 
-    let newShoppingCart = [...state.shoppingCart, item]
+    let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
+    newShoppingCart = [...newShoppingCart, newItem]
+        
+    let products = state.products.filter(product => product.id !== item.id)
+    let newProduct = {
+        ...item,
+        addToCart: 1
+    }
+    products = [...products, newProduct]
 
     return {
         ...state,
-        shoppingCart: newShoppingCart.sort((a,b) => a.id - b.id)
+        shoppingCart: newShoppingCart.sort((a,b) => a.id - b.id),
+        products: products.sort((a, b) => a.id - b.id)
     }
 }
 

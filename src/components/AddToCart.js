@@ -4,13 +4,17 @@ import { addToCart } from  '../actions/cartActions';
 
 class AddToCart extends Component {
     handleClick = () => {
-        this.props.item.addToCart = this.props.item.addToCart ? this.props.item.addToCart : 1;
-        this.props.addToCart(this.props.item);
+        let newItem = {
+            ...this.props.item,
+            addToCart: this.props.item.addToCart ? this.props.item.addToCart : 1
+        }
+        // this.props.item.addToCart = this.props.item.addToCart ? this.props.item.addToCart : 1;
+        this.props.addToCart(newItem);
     }
 
     render() {
         return (
-            <button onClick={this.handleClick}>Adicionar ao carrinho</button>
+            <button onClick={this.handleClick}>{this.props.label}</button>
         )
     }
 }

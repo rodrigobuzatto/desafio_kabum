@@ -3,26 +3,33 @@ import { connect } from 'react-redux';
 import { addQuantity, removeQuantity } from '../actions/productActions';
 
 class Quantity extends Component {
-
-    quantity = this.props.product.addToCart || 1;
+    
+    quantity = this.props.item.addToCart || 1;
 
     handleClickAdd = () => {
         this.quantity++;
-        this.props.product.addToCart = this.quantity;
-        this.props.addQuantity(this.props.product);
+        let newItem = {
+            ...this.props.item,
+            addToCart: this.quantity
+        }
+        this.props.addQuantity(newItem);
     }
 
     handleClickRemove = () => {
         this.quantity--;
-        this.props.product.addToCart = this.quantity;
-        this.props.removeQuantity(this.props.product);        
+        let newItem = {
+            ...this.props.item,
+            addToCart: this.quantity
+        }
+        this.props.removeQuantity(newItem);
     }
 
     render() {
+        console.log(this.props)
         return (            
             <div>                
                 <button onClick={this.handleClickRemove} disabled={this.quantity === 0}>-</button>
-                <input type="text" id="quantity" disabled value={this.props.product.addToCart || this.quantity}></input>
+                <label>{this.quantity}</label>
                 <button onClick={this.handleClickAdd}>+</button>
             </div>
         )

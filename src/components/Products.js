@@ -10,7 +10,7 @@ class Products extends Component {
             return (
                 <div key={item.id}>
                     <Product item={item}/>
-                    <AddToCart item={item} quantity="1"/>
+                    <AddToCart item={item} label="Adicionar ao carrinho"/>
                 </div>
             )
         }) :  (
