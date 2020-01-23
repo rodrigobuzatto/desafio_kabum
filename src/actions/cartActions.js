@@ -11,3 +11,10 @@ export const removeFromCart = (item) => {
         item
     }
 }
+
+export const updateCart = (item) => {
+    return {
+        type: 'UPDATE_CART',
+        item
+    }
+}

@@ -4,7 +4,7 @@ import { addQuantity, removeQuantity } from '../actions/productActions';
 
 class Quantity extends Component {
     
-    quantity = this.props.item.addToCart || 1;
+    quantity = this.props.item.addToCart ? this.props.item.addToCart : 1;
 
     handleClickAdd = () => {
         this.quantity++;
@@ -25,7 +25,6 @@ class Quantity extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (            
             <div>                
                 <button onClick={this.handleClickRemove} disabled={this.quantity === 0}>-</button>

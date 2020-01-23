@@ -14,6 +14,10 @@ class Filter extends Component {
         this.search = event.target.value;
     }
 
+    componentDidMount() {
+        this.props.filter(this.search);
+    }
+
     render() {
         return (
             <div>

@@ -7,14 +7,13 @@ class AddToCart extends Component {
         let newItem = {
             ...this.props.item,
             addToCart: this.props.item.addToCart ? this.props.item.addToCart : 1
-        }
-        // this.props.item.addToCart = this.props.item.addToCart ? this.props.item.addToCart : 1;
+        }        
         this.props.addToCart(newItem);
     }
 
     render() {
         return (
-            <button onClick={this.handleClick}>{this.props.label}</button>
+            <button onClick={this.handleClick}>Adicionar ao carrinho</button>
         )
     }
 }

@@ -10,7 +10,7 @@ class ProductDetails extends Component {
             <div key={this.props.product.id}>
                 <Product item={this.props.product} />
                 <Quantity item={this.props.product} />
-                <AddToCart item={this.props.product} label="Adicionar ao carrinho"/>
+                <AddToCart item={this.props.product} />
             </div>
         ) : (
             <div>

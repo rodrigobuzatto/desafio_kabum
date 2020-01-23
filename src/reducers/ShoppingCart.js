@@ -50,6 +50,26 @@ const addToCart = (state, item) => {
     }
 }
 
+const updateCart = (state, item) => {    
+    let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
+    let newItem = state.products.find(product => product.id === item.id)
+
+    newShoppingCart = [...newShoppingCart, newItem]
+
+    let products = state.products.filter(product => product.id !== item.id)
+    let newProduct = {
+        ...item,
+        addToCart: 1
+    }
+    products = [...products, newProduct]
+
+    return {
+        ...state,
+        shoppingCart: newShoppingCart.sort((a, b) => a.id - b.id),
+        products: products.sort((a, b) => a.id - b.id)
+    }
+}
+
 const removeFromCart = (state, item) => {
     let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
 
@@ -92,6 +112,7 @@ const ShoppingCartReducer = (state = initState, actions) => {
     let newState = {};
     switch(type) {
         case 'ADD_TO_CART': newState = addToCart(state, item); break;
+        case 'UPDATE_CART': newState = updateCart(state, item); break;
         case 'REMOVE_FROM_CART': newState = removeFromCart(state, item); break;
         case 'ADD_QUANTITY': newState = handleQuantity(state, item); break;
         case 'REMOVE_QUANTITY': newState = handleQuantity(state, item); break;
