@@ -18,8 +18,9 @@ export const MenuContainer = styled(Container)`
     width: 300px;
 `;
 
-export const FilterContainer = styled.form`    
-    flex-grow: 1;
+export const FilterContainer = styled.form`
+    align-items: flex-start;
+    flex-grow: 0;
 `;
 
 export const NavContainer = styled.nav`
