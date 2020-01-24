@@ -232,6 +232,7 @@ export const CartActions = styled.button`
     line-height: 1px;
     cursor: pointer;
     margin-bottom: 10px;
+    width: 160px;
 `;
 
 export const ProductDetailsButton = styled.div`
@@ -245,6 +246,7 @@ export const ProductDetailsButton = styled.div`
     line-height: 1px;
     cursor: pointer;
     margin: 15px;
+    width: 130px;
 
     a {
         font-size: 14px;        
