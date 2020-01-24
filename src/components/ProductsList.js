@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Filter from './Filter';
 import { MenuTitle, MenuProducts, MenuItem, MenuItemMessage } from '../styles/styles';
-import { ProductsListContainer } from '../styles/styles2';
+import { ProductsListContainer } from '../styles/styles';
 
 class ProductsList extends Component {
     render() {

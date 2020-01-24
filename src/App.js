@@ -4,7 +4,6 @@ import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 import Navbar from './components/Navbar';
 import Product from './components/ProductDetails';
-// import ProductsList from './components/ProductsList';
 import Filter from './components/Filter';
 
 function App() {

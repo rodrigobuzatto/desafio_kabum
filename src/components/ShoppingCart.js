@@ -1,41 +1,61 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import Product from './Product';
 import Quantity from './Quantity';
 import RemoveFromCart from './RemoveFromCart';
 import UpdateCart from './UpdateCart';
-import { Container, BackToCartButton, Title, ProductContainer } from '../styles/styles';
+import { ShoppingCartContainer, ShoppingCartDetail, ProductImage, Title, DefaultParagraph, ProductDetailsInfo, ShoppingCartDetailContainer, ProductActions, DefaultPrice, BackToCartButton, SubTotalContainer, SubTotalInfo } from '../styles/styles';
+import image from '../images/logo.jpg';
 
 class ShoppingCart extends Component {
     render() {
         const shoppingCart = this.props.shoppingCart.length ? (
-            <Container>                
+            <ShoppingCartDetailContainer>                
                 {
                     this.props.shoppingCart.map((item) => {
                         return (
-                            <ProductContainer key={item.id}>
-                                <Product item={item} />
-                                <Quantity item={item} />
-                                <UpdateCart item={item} />
-                                <RemoveFromCart item={item} />
-                            </ProductContainer>
+                            <ShoppingCartDetail key={item.id}>
+                                <ProductImage src={image}/>
+                                <ProductDetailsInfo>
+                                    <Title>{item.product}</Title>
+                                    <DefaultParagraph>{item.description}</DefaultParagraph>
+                                    <DefaultPrice>{ 'R$ ' + (item.price * (item.addToCart || 1)).toFixed(2) }</DefaultPrice>
+                                </ProductDetailsInfo>
+                                <ProductActions>
+                                    <Quantity item={item} />
+                                    <UpdateCart item={item} />
+                                    <RemoveFromCart item={item} />
+                                </ProductActions>
+                            </ShoppingCartDetail>
                         )
                     })
                 }
-            </Container>
+            </ShoppingCartDetailContainer>
         ) : (
-            <ProductContainer>
+            <ShoppingCartDetailContainer>
                 <Title>Carrinho vazio</Title>
                 <BackToCartButton>
                     <NavLink to="/">Voltar as compras</NavLink>
                 </BackToCartButton>
-            </ProductContainer>
+            </ShoppingCartDetailContainer>
         );
+
+
+        const totalCartValue = this.props.shoppingCart.length ? (
+            this.props.shoppingCart.map(item => item).reduce((total, item) => total += (item.price * item.addToCart), 0)
+        ) : (
+            0
+        );
+
         return (
-            <Container>
+            <ShoppingCartContainer>
                 {shoppingCart}
-            </Container>
+                <SubTotalContainer>
+                    <SubTotalInfo>
+                        <DefaultPrice>{'Total da compra: R$ ' + totalCartValue.toFixed(2)}</DefaultPrice>
+                    </SubTotalInfo>
+                </SubTotalContainer>
+            </ShoppingCartContainer>
         )
     }
 }

@@ -1,18 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ProductDetailsButton, ProductItem, Title, DefaultParagraph } from '../styles/styles';
+import { ProductInfo, ProductImage, Title, DefaultParagraph, DefaultPrice, ProductDetailsButton } from '../styles/styles';
+import image from  '../images/logo.jpg';
 
 const Product = (props) => {
     let { item } = props;
     return (
-        <ProductItem>
+        <ProductInfo>
+            <ProductImage src={image}/>
             <Title>{item.product}</Title>
             <DefaultParagraph>{item.description}</DefaultParagraph>
-            <DefaultParagraph>{item.price}</DefaultParagraph>
+            <DefaultPrice>{'R$ ' + item.price.toFixed(2)}</DefaultPrice>
             <ProductDetailsButton>
                 <NavLink to={'/product/' + item.id}>Detalhes do produto</NavLink>
             </ProductDetailsButton>
-        </ProductItem>
+        </ProductInfo>
     )
 }
 

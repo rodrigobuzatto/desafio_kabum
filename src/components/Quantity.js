@@ -17,18 +17,20 @@ class Quantity extends Component {
     }
 
     handleClickRemove = () => {
-        this.quantity--;
-        let newItem = {
-            ...this.props.item,
-            addToCart: this.quantity
+        if(this.quantity > 1) {
+            this.quantity--;
+            let newItem = {
+                ...this.props.item,
+                addToCart: this.quantity
+            }
+            this.props.removeQuantity(newItem);
         }
-        this.props.removeQuantity(newItem);
     }
 
     render() {
         return (            
             <QuantityContainer>                
-                <QuantityButton onClick={this.handleClickRemove} disabled={this.quantity === 0}>-</QuantityButton>
+                <QuantityButton onClick={this.handleClickRemove}>-</QuantityButton>
                 <QuantityLabel>{this.quantity}</QuantityLabel>
                 <QuantityButton onClick={this.handleClickAdd}>+</QuantityButton>
             </QuantityContainer>

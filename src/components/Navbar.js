@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { MyCart } from '../styles/styles';
-import { NavbarContainer } from '../styles/styles2';
+import { NavbarContainer, MyCart, ProductListButton } from '../styles/styles';
 import logo from '../images/logo.png';
  
 class Navbar extends Component {
@@ -10,8 +9,11 @@ class Navbar extends Component {
         return (
             <NavbarContainer>
                 <NavLink to="/"><img src={logo} alt="Logo"/></NavLink>
+                <ProductListButton>
+                    <NavLink to="/">Listagem de Produtos</NavLink>
+                </ProductListButton>
                 <MyCart>
-                    <NavLink to="/cart"><label>{this.props.items}</label>Meu carrinho</NavLink>
+                    <NavLink to="/cart">Meu carrinho<label>{this.props.items}</label></NavLink>
                 </MyCart>
             </NavbarContainer>
         )

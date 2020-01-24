@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Product from './Product';
 import AddToCart from './AddToCart';
 import Quantity from './Quantity';
-import { Title } from '../styles/styles';
-import { ProductsContainer, ProductDetail } from '../styles/styles2';
+import { ProductsContainer, ProductDetail, ProductImage, Title, DefaultParagraph, ProductDetailsInfo, ProductDetailContainer, ProductDetailContainerError, ProductActions, DefaultPrice } from '../styles/styles';
+import image from '../images/logo.jpg';
+
 
 class ProductDetails extends Component {
     render() {
         const product = this.props.product ? (
-            <ProductDetail key={this.props.product.id}>
-                <Product item={this.props.product} />
-                <Quantity item={this.props.product} />
-                <AddToCart item={this.props.product} />
-            </ProductDetail>
+            <ProductDetailContainer>
+                <ProductDetail key={this.props.product.id}>
+                    <ProductImage src={image} />
+                    <ProductDetailsInfo>
+                        <Title>{this.props.product.product}</Title>
+                        <DefaultParagraph>{this.props.product.description}</DefaultParagraph>
+                        <DefaultPrice>{ 'R$ ' + (this.props.product.price * (this.props.product.addToCart || 1)).toFixed(2) }</DefaultPrice>
+                    </ProductDetailsInfo>
+                    <ProductActions>
+                        <Quantity item={this.props.product} />
+                        <AddToCart item={this.props.product} />
+                    </ProductActions>
+                </ProductDetail>
+                
+            </ProductDetailContainer>
         ) : (
-            <ProductDetail>
+            <ProductDetailContainerError>
                 <Title>Produto não encontrado.</Title>
-            </ProductDetail>
+            </ProductDetailContainerError>
         )
         
         return (
