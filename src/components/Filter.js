@@ -12,7 +12,9 @@ class Filter extends Component {
     }
 
     handleChange = (event) => {
+        event.preventDefault();
         this.search = event.target.value;
+        this.props.filter(this.search)
     }
 
     componentDidMount() {
