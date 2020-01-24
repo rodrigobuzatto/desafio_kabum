@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Filter from './Filter';
-import { MenuContainer, MenuTitle, MenuProducts, MenuItem, MenuItemMessage } from '../styles/styles';
+import { MenuTitle, MenuProducts, MenuItem, MenuItemMessage } from '../styles/styles';
+import { ProductsListContainer } from '../styles/styles2';
 
 class ProductsList extends Component {
     render() {
@@ -16,13 +17,13 @@ class ProductsList extends Component {
             <MenuItemMessage>Produtos não encontrados.</MenuItemMessage>
         )
         return (
-            <MenuContainer>
-                <MenuTitle>Produtos</MenuTitle>
+            <ProductsListContainer>
+                <MenuTitle>Produtos </MenuTitle>
                 <Filter />
                 <MenuProducts>
                     {productsList}
                 </MenuProducts>
-            </MenuContainer>
+            </ProductsListContainer>
         )
     }
 }

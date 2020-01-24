@@ -183,7 +183,7 @@ export const Title = styled.h1`
 `;
 
 export const ProductItem = styled.div`
-    width: 250px;
+    width: 200px;
     padding: 5px;
 `;
 

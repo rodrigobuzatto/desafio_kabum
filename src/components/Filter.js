@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { filter } from '../actions/productActions';
-import { FilterContainer, SearchButton, DefaultInput } from '../styles/styles';
+// import { DefaultInput } from '../styles/styles';
+import { FilterContainer, SearchButton, DefaultInput } from '../styles/styles2';
 
 class Filter extends Component {
     search = '';

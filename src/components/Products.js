@@ -3,25 +3,26 @@ import Product from './Product';
 import { connect } from 'react-redux';
 import AddToCart from './AddToCart';
 //import Filter from '../components/Filter';
-import { Container, Title, ProductContainer } from '../styles/styles';
+import { Title } from '../styles/styles';
+import { ProductsContainer, ProductItem } from '../styles/styles2';
 
 class Products extends Component {
     render() {
         const listProducts = this.props.products.length ? this.props.products.map((item) => {
             return (
-                <ProductContainer key={item.id}>
+                <ProductItem key={item.id}>
                     <Product item={item}/>
                     <AddToCart item={item} />
-                </ProductContainer>
+                </ProductItem>
             )
         }) :  (
             <Title>Produto não encontrado</Title>
         )
 
         return (            
-            <Container>
+            <ProductsContainer>
                 {listProducts}
-            </Container>
+            </ProductsContainer>
         )
     }
 }
