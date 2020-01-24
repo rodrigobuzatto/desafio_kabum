@@ -17,16 +17,22 @@ export const ShoppingCartContainer = styled(Container)`
     flex-direction: column;
 `;
 
+export const ProductDetailsBase = styled(Container)`
+    flex-direction: column;
+    margin: 15px;
+`;
+
 export const ShoppingCartDetailContainer = styled(Container)`
     flex-direction: column;
     margin: 15px;
+    margin-top: 0;
     flex-grow: 1;
 `;
 
 export const ProductDetailContainer = styled(Container)`
     flex-direction: column;
     border: 1px solid #0077BF;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     padding: 10px;
     flex-grow: 1;
 `;
@@ -87,7 +93,7 @@ export const ShoppingCartDetail = styled(ProductDetail)`
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #0077BF;
-    border-radius: 5px;
+    border-radius:0 0 5px 5px;
 `;
 
 export const SearchButton = styled.button`
@@ -153,6 +159,28 @@ export const Title = styled.h1`
     font-size: 14px;
     font-weight: bold;
     text-align: center;
+`;
+
+export const PageTitle = styled(Title)`
+    font-size: 16px;
+    text-align: left;
+    flex-grow: 1;
+    margin: 15px;
+    margin-bottom: 0;
+    background: #0077BF;
+    padding: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 5px 5px 0 0;
+`;
+
+export const PageDetailsTitle = styled(PageTitle)`
+    margin: 0;
+    background: #0077BF;
+    padding: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 5px 5px 0 0;
 `;
 
 export const DefaultParagraph = styled.p`
@@ -271,4 +299,8 @@ export const SubTotalContainer = styled(Container)`
 export const SubTotalInfo = styled.div`
     flew-grow: 1;
     text-align: left;
+`;
+
+export const ProductsList = styled.div`
+    width: 100%;
 `;

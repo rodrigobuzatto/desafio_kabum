@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Quantity from './Quantity';
 import RemoveFromCart from './RemoveFromCart';
 import UpdateCart from './UpdateCart';
-import { ShoppingCartContainer, ShoppingCartDetail, ProductImage, Title, DefaultParagraph, ProductDetailsInfo, ShoppingCartDetailContainer, ProductActions, DefaultPrice, BackToCartButton, SubTotalContainer, SubTotalInfo } from '../styles/styles';
+import { ShoppingCartContainer, ShoppingCartDetail, ProductImage, Title, DefaultParagraph, ProductDetailsInfo, ShoppingCartDetailContainer, ProductActions, DefaultPrice, BackToCartButton, SubTotalContainer, SubTotalInfo, PageTitle } from '../styles/styles';
 import image from '../images/logo.jpg';
 
 class ShoppingCart extends Component {
@@ -49,6 +49,7 @@ class ShoppingCart extends Component {
 
         return (
             <ShoppingCartContainer>
+                <PageTitle>Carrinho de compras</PageTitle>
                 {shoppingCart}
                 <SubTotalContainer>
                     <SubTotalInfo>
