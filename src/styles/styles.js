@@ -127,8 +127,8 @@ export const MyCart = styled.div`
 
     label {
         position: absolute;
-        background: #ff0000;
-        border: 1px solid #ff0000;
+        background: #F95913;
+        border: 1px solid #F95913;
         color: #ffff;
         border-radius: 50%;
         margin: -10px 0 -20px 0;
