@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import AddToCart from './AddToCart';
 import Quantity from './Quantity';
 import { ProductDetailsBase, ProductDetail, ProductImage, Title, DefaultParagraph, ProductDetailsInfo, ProductDetailContainer, ProductDetailContainerError, ProductActions, DefaultPrice, PageDetailsTitle } from '../styles/styles';
-import image from '../images/logo.jpg';
-
+import BackToShopping from './BackToShopping';
 
 class ProductDetails extends Component {
     render() {
@@ -20,6 +19,7 @@ class ProductDetails extends Component {
                     <ProductActions>
                         <Quantity item={this.props.product} />
                         <AddToCart item={this.props.product} />
+                        <BackToShopping />
                     </ProductActions>
                 </ProductDetail>
                 
@@ -27,6 +27,7 @@ class ProductDetails extends Component {
         ) : (
             <ProductDetailContainerError>
                 <Title>Produto não encontrado.</Title>
+                <BackToShopping/>
             </ProductDetailContainerError>
         )
         

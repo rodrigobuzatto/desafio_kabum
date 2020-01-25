@@ -46,8 +46,8 @@ export const NavbarContainer = styled(Container)`
     justify-content: space-between;
     border-bottom: 1px solid #0077BF;
     min-height: 50px;
-    padding: 5px;
-    flex-grow: 1;
+    padding: 5px;    
+    align-items: center;
 
     a {
         text-decoration: none;
@@ -107,6 +107,8 @@ export const SearchButton = styled.button`
     border: 1px solid #0077BF;
     font-weight: bold;
     border-radius: 0 5px 5px 0;
+    font-size: 20px;
+    font-weight: bold;
 `;
 
 export const DefaultInput = styled.input`
@@ -119,17 +121,16 @@ export const DefaultInput = styled.input`
 
 export const MyCart = styled.div`
     align-self: center;
-    height: 20px;
-    padding: 5px 10px;
     text-align: center;
-    background:#0077BF;
+    color:#0077BF;
     border-radius: 5px;
     margin-right: 15px;
 
     a {
         font-size: 14px;
         font-weight: bold;
-        color: #ffffff;
+        color: #0077BF;
+        font-size: 40px;
     }
 
     label {
@@ -137,10 +138,11 @@ export const MyCart = styled.div`
         background: #F95913;
         border: 1px solid #F95913;
         color: #ffff;
-        border-radius: 50%;
-        margin: -10px 0 -20px 0;
+        border-radius: 50%;        
         width: 20px;
         height: 20px;
+        font-size: 14px;
+        margin-left:-15px;
     }
 `;
 
@@ -203,60 +205,101 @@ export const ProductDetailsInfo = styled.div`
 `;
 
 export const BackToCartButton = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     align-self: center;
-    padding: 5px 10px;
     text-align: center;
     background:#0077BF;
     border-radius: 5px;
     border: none;
-    padding: 15px;
+    padding: 5px;
     line-height: 1px;
     cursor: pointer;
+    margin: 15px;
+    max-width: 160px;
+    min-width: 150px;
+    margin-bottom: 0;
 
     a {
+        flex: 1;
         font-size: 14px;        
         color: #ffffff;
         text-decoration: none;
     }
+
+    svg {
+        align-self:center;
+        margin: 0 auto;
+        padding: 0;
+        font-size: 20px;
+        color: #ffffff;
+    }
 `;
 
 export const CartActions = styled.button`
+    display: flex;
     align-self: center;
-    height: 20px;
-    padding: 5px 10px;
     text-align: center;
     background:#0077BF;
     border-radius: 5px;
     color: #ffffff;
     border: none;
-    padding: 15px;
-    line-height: 1px;
+    padding: 5px;
     cursor: pointer;
     margin-bottom: 10px;
     width: 160px;
+    justify-content: space-between;
+
+
+    svg {
+        align-self:center;
+        margin: 0 auto;
+        padding: 0;
+        font-size: 20px;
+    }
+`;
+
+export const DefaultSpan = styled.span`
+    flex: 1;
+    align-self:center;
 `;
 
 export const ProductDetailsButton = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     align-self: center;
-    padding: 5px 10px;
     text-align: center;
     background:#0077BF;
     border-radius: 5px;
     border: none;
-    padding: 15px;
+    padding: 5px;
     line-height: 1px;
     cursor: pointer;
     margin: 15px;
-    width: 130px;
+    max-width: 160px;
+    min-width: 150px;
+    margin-bottom: 0;
 
     a {
+        flex: 1;
         font-size: 14px;        
         color: #ffffff;
         text-decoration: none;
     }
+
+    svg {
+        align-self:center;
+        margin: 0 auto;
+        padding: 0;
+        font-size: 20px;
+        color: #ffffff;
+    }
 `;
 
-export const ProductListButton = styled(ProductDetailsButton)`    
+export const ProductListButton = styled(ProductDetailsButton)`
+    max-width: 100%;
     flex-grow: 1;
     text-align: left;
     background: none;
@@ -267,7 +310,7 @@ export const ProductListButton = styled(ProductDetailsButton)`
     }
 
     a:hover {
-        text-decoration: underline;
+        color: #F95913;        
     }
 `;
 

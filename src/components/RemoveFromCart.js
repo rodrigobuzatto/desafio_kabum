@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../actions/cartActions';
-import { CartActions } from '../styles/styles';
+import { CartActions, DefaultSpan } from '../styles/styles';
+import { MdRemoveShoppingCart } from 'react-icons/md';
 
 class RemoveFromCart extends Component {
     handleClick = () => {
@@ -11,7 +12,7 @@ class RemoveFromCart extends Component {
 
     render() {
         return (
-            <CartActions onClick={this.handleClick}>Remover do carrinho</CartActions>
+            <CartActions onClick={this.handleClick}><DefaultSpan>Remover do carrinho</DefaultSpan><MdRemoveShoppingCart/></CartActions>
         )
     }
 }

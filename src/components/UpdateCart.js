@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updateCart } from '../actions/cartActions'
-import { CartActions } from '../styles/styles';
+import { CartActions, DefaultSpan } from '../styles/styles';
+import { MdSync } from 'react-icons/md';
 
 class UpdateCart extends Component {
     handleClick = () => {
@@ -14,7 +15,7 @@ class UpdateCart extends Component {
 
     render() {
         return (
-            <CartActions onClick={this.handleClick}>Atualizar Item</CartActions>
+            <CartActions onClick={this.handleClick}><DefaultSpan>Atualizar Item</DefaultSpan><MdSync/></CartActions>
         )
     }
 

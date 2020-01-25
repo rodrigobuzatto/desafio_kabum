@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from  '../actions/cartActions';
-import { CartActions } from '../styles/styles';
+import { CartActions, DefaultSpan } from '../styles/styles';
+import { MdAddShoppingCart } from 'react-icons/md';
 
 class AddToCart extends Component {
     handleClick = () => {
@@ -14,7 +15,7 @@ class AddToCart extends Component {
 
     render() {
         return (
-            <CartActions onClick={this.handleClick}>Adicionar ao carrinho</CartActions>
+            <CartActions onClick={this.handleClick}><DefaultSpan>Adicionar ao carrinho</DefaultSpan><MdAddShoppingCart/></CartActions>
         )
     }
 }

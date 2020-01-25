@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import Quantity from './Quantity';
 import RemoveFromCart from './RemoveFromCart';
 import UpdateCart from './UpdateCart';
-import { ShoppingCartContainer, ShoppingCartDetail, ProductImage, Title, DefaultParagraph, ProductDetailsInfo, ShoppingCartDetailContainer, ProductActions, DefaultPrice, BackToCartButton, SubTotalContainer, SubTotalInfo, PageTitle } from '../styles/styles';
-import image from '../images/logo.jpg';
+import { ShoppingCartContainer, ShoppingCartDetail, ProductImage, Title, DefaultParagraph, ProductDetailsInfo, ShoppingCartDetailContainer, ProductActions, DefaultPrice, SubTotalContainer, SubTotalInfo, PageTitle } from '../styles/styles';
+import BackToShopping from './BackToShopping';
 
 class ShoppingCart extends Component {
     render() {
@@ -25,6 +24,7 @@ class ShoppingCart extends Component {
                                     <Quantity item={item} />
                                     <UpdateCart item={item} />
                                     <RemoveFromCart item={item} />
+                                    <BackToShopping />
                                 </ProductActions>
                             </ShoppingCartDetail>
                         )
@@ -34,9 +34,7 @@ class ShoppingCart extends Component {
         ) : (
             <ShoppingCartDetailContainer>
                 <Title>Carrinho vazio</Title>
-                <BackToCartButton>
-                    <NavLink to="/">Voltar as compras</NavLink>
-                </BackToCartButton>
+                <BackToShopping />
             </ShoppingCartDetailContainer>
         );
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { filter } from '../actions/productActions';
 import { FilterContainer, SearchButton, DefaultInput } from '../styles/styles';
+import { GoSearch } from 'react-icons/go';
 
 class Filter extends Component {
     search = '';
@@ -21,7 +22,7 @@ class Filter extends Component {
         return (            
             <FilterContainer onSubmit={this.handleClick}>
                 <DefaultInput type="text" id="filter" placeholder="Pesquisar produtos ..." onChange={this.handleChange}/>
-                <SearchButton type="submit">Buscar</SearchButton>
+                <SearchButton type="submit"><GoSearch/></SearchButton>
             </FilterContainer>
         )
     }
