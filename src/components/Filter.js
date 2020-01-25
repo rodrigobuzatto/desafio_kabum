@@ -17,10 +17,6 @@ class Filter extends Component {
         this.props.filter(this.search)
     }
 
-    componentDidMount() {
-        this.props.filter(this.search);
-    }
-
     render() {
         return (            
             <FilterContainer onSubmit={this.handleClick}>

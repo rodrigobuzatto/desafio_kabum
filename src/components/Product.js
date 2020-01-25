@@ -7,10 +7,10 @@ const Product = (props) => {
     let { item } = props;
     return (
         <ProductInfo>
-            <ProductImage src={image}/>
+            <ProductImage src={item.image}/>
             <Title>{item.product}</Title>
             <DefaultParagraph>{item.description}</DefaultParagraph>
-            <DefaultPrice>{'R$ ' + item.price.toFixed(2)}</DefaultPrice>
+            <DefaultPrice>{'R$ ' + parseFloat(item.price).toFixed(2)}</DefaultPrice>
             <ProductDetailsButton>
                 <NavLink to={'/product/' + item.id}>Detalhes do produto</NavLink>
             </ProductDetailsButton>

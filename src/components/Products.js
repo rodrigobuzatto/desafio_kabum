@@ -5,8 +5,13 @@ import AddToCart from './AddToCart';
 import { Title } from '../styles/styles';
 import { ProductsContainer, ProductsListContainer, ProductDetailContainerError, ProductItem, ProductsList } from '../styles/styles';
 import Filter from '../components/Filter';
+import { productsThunk } from '../thunks/products';
 
 class Products extends Component {
+    componentDidMount() {
+        this.props.getProducts()
+    }
+
     render() {
         const listProducts = this.props.products.length ? (
             <ProductsList>
@@ -28,7 +33,7 @@ class Products extends Component {
             <ProductsList>
                 <Filter />            
                 <ProductDetailContainerError>
-                    <Title>Produto não encontrado</Title>
+                    <Title>Produtos não encontrados.</Title>
                 </ProductDetailContainerError>
             </ProductsList>
         )
@@ -47,4 +52,10 @@ const mapStoreToProps = (state) => {
     }
 }
 
-export default connect(mapStoreToProps)(Products);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getProducts: () => { dispatch(productsThunk.getProducts()) }
+    }
+}
+
+export default connect(mapStoreToProps, mapDispatchToProps)(Products);

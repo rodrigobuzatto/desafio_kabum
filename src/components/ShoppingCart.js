@@ -15,11 +15,11 @@ class ShoppingCart extends Component {
                     this.props.shoppingCart.map((item) => {
                         return (
                             <ShoppingCartDetail key={item.id}>
-                                <ProductImage src={image}/>
+                                <ProductImage src={item.image}/>
                                 <ProductDetailsInfo>
                                     <Title>{item.product}</Title>
                                     <DefaultParagraph>{item.description}</DefaultParagraph>
-                                    <DefaultPrice>{ 'R$ ' + (item.price * (item.addToCart || 1)).toFixed(2) }</DefaultPrice>
+                                    <DefaultPrice>{ 'R$ ' + (parseFloat(item.price) * (item.addToCart || 1)).toFixed(2) }</DefaultPrice>
                                 </ProductDetailsInfo>
                                 <ProductActions>
                                     <Quantity item={item} />
@@ -42,7 +42,7 @@ class ShoppingCart extends Component {
 
 
         const totalCartValue = this.props.shoppingCart.length ? (
-            this.props.shoppingCart.map(item => item).reduce((total, item) => total += (item.price * item.addToCart), 0)
+            this.props.shoppingCart.map(item => item).reduce((total, item) => total += (parseFloat(item.price) * item.addToCart), 0)
         ) : (
             0
         );

@@ -11,11 +11,11 @@ class ProductDetails extends Component {
         const product = this.props.product ? (
             <ProductDetailContainer>
                 <ProductDetail key={this.props.product.id}>
-                    <ProductImage src={image} />
+                    <ProductImage src={this.props.product.image} />
                     <ProductDetailsInfo>
                         <Title>{this.props.product.product}</Title>
                         <DefaultParagraph>{this.props.product.description}</DefaultParagraph>
-                        <DefaultPrice>{ 'R$ ' + (this.props.product.price * (this.props.product.addToCart || 1)).toFixed(2) }</DefaultPrice>
+                        <DefaultPrice>{ 'R$ ' + (parseFloat(this.props.product.price) * (this.props.product.addToCart || 1)).toFixed(2) }</DefaultPrice>
                     </ProductDetailsInfo>
                     <ProductActions>
                         <Quantity item={this.props.product} />
@@ -42,7 +42,7 @@ class ProductDetails extends Component {
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.product_id;
     return {
-        product: state.products.find(product => (product.id === parseInt(id)))
+        product: state.products.find(product => (product.id === id))
     }
 }
 

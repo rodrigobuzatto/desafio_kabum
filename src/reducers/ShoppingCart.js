@@ -1,50 +1,5 @@
-//Mock API - http(s)://5e2736756eeb44001453698e.mockapi.io/products
-
 const initState = {
-    products: [
-        {
-            id: 1,
-            product: 'Memoria RAM',
-            description: 'Memoria RAM 2 GB',
-            price: 150
-        },
-        {
-            id: 2,
-            product: 'SSD Kinngston',
-            description: 'SSD Kingston 256MB',
-            price: 250
-        },
-        {
-            id: 3,
-            product: 'Notebook Gamer Nitro 5',
-            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
-            price: 3500
-        },
-        {
-            id: 4,
-            product: 'Notebook Gamer Nitro 5',
-            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
-            price: 3500
-        },
-        {
-            id: 5,
-            product: 'Notebook Gamer Nitro 5',
-            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
-            price: 3500
-        },
-        {
-            id: 6,
-            product: 'Notebook Gamer Nitro 5',
-            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
-            price: 3500
-        },
-        {
-            id: 7,
-            product: 'Notebook Gamer Nitro 5',
-            description: 'Uma breve descrição sobre o notebook gamer nitro 5',
-            price: 3500
-        }
-    ],
+    products: [],
     shoppingCart: []
 }
 
@@ -114,20 +69,28 @@ const handleQuantity = (state, item) => {
 }
 
 const filter = (state, item) => {
-    const { products } = initState
+    const { initState } = state;
 
     if(!item) {
         return {
             ...state,
-            products
+            products: initState
         }
     }
 
-    let newProducts = (parseInt(item) ? (products.filter(product => product.id === parseInt(item))) : (products.filter(product => product.product.toLowerCase().includes(item.toLowerCase()))));
+    let newProducts = (parseInt(item) ? (initState.filter(product => product.id === item)) : (initState.filter(product => product.product.toLowerCase().includes(item.toLowerCase()))));
 
     return {
         ...state,
         products: newProducts.sort((a, b) => a.id - b.id)
+    }
+}
+
+const getProducts = (state, item) => {
+    return {
+        ...state,
+        products: item,
+        initState: item
     }
 }
 
@@ -141,6 +104,7 @@ const ShoppingCartReducer = (state = initState, actions) => {
         case 'ADD_QUANTITY': newState = handleQuantity(state, item); break;
         case 'REMOVE_QUANTITY': newState = handleQuantity(state, item); break;
         case 'FILTER': newState = filter(state, item); break;
+        case 'GET_PRODUCTS': newState = getProducts(state, item); break;
         default: newState = state; break;
     }
     return newState;

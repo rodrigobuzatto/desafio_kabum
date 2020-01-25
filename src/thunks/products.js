@@ -1,12 +1,9 @@
 import { productsAPIs } from '../apis/products';
+import { getProducts } from '../actions/productActions';
 
 const productsThunk = {
-    getProducts: () => {
-        return (dispatch) => {
-            dispatch({
-                type: 'GET_PRODUCTS'
-            })
-        }
+    getProducts: () => dispatch => {
+        productsAPIs.getProducts().then(products => dispatch(getProducts(products)))
     }
 }
 

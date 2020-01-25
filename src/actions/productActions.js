@@ -32,3 +32,10 @@ export const filter = (item) => {
         item
     }
 }
+
+export const getProducts = (products)  => {
+    return {
+        type: 'GET_PRODUCTS',
+        item: products
+    }
+}
