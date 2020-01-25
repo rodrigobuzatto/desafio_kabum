@@ -74,8 +74,9 @@ export const ProductItem = styled.div`
     padding: 10px;
     border: 1px solid #0077BF;
     border-radius: 5px;
-    width: 200px;
+    max-width: 195px;
     margin: 15px;
+    flex: 1;
 `;
 
 export const ProductDetail = styled.div`
