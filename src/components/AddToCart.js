@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addToCart } from  '../actions/cartActions';
 import { CartActions, DefaultSpan } from '../styles/styles';
 import { MdAddShoppingCart } from 'react-icons/md';
+import { withRouter } from 'react-router-dom';
 
 class AddToCart extends Component {
     handleClick = () => {
@@ -11,6 +12,7 @@ class AddToCart extends Component {
             addToCart: this.props.item.addToCart ? this.props.item.addToCart : 1
         }        
         this.props.addToCart(newItem);
+        this.props.history.push('/cart');
     }
 
     render() {
@@ -32,4 +34,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddToCart);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AddToCart));
