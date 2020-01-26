@@ -18,7 +18,7 @@ const addToCart = (state, item) => {
     let products = state.products.filter(product => product.id !== item.id)
     let newProduct = {
         ...item,
-        addToCart: 1
+        addToCart: 0
     }
     products = [...products, newProduct]
 
@@ -30,22 +30,14 @@ const addToCart = (state, item) => {
 }
 
 const updateCart = (state, item) => {    
+    let product = state.products.find(product => product.id === item.id)
+
     let newShoppingCart = state.shoppingCart.filter(cart => cart.id !== item.id)
-    let newItem = state.products.find(product => product.id === item.id)
-
-    newShoppingCart = [...newShoppingCart, newItem]
-
-    let products = state.products.filter(product => product.id !== item.id)
-    let newProduct = {
-        ...item,
-        addToCart: 1
-    }
-    products = [...products, newProduct]
+    newShoppingCart = [...newShoppingCart, product]
 
     return {
         ...state,
-        shoppingCart: newShoppingCart.sort((a, b) => a.id - b.id),
-        products: products.sort((a, b) => a.id - b.id)
+        shoppingCart: newShoppingCart.sort((a, b) => a.id - b.id)
     }
 }
 
